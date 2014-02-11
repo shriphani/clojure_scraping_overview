@@ -1,4 +1,4 @@
-(ns clojure-scraping-overview.hn-meta-xpath
+(ns clojure-scraping-overview.reddit-meta-xpath
   "XPath based scraping of the html"
   (:require [clj-http.client :as client]
             [clojure-scraping-overview.core :as core])
