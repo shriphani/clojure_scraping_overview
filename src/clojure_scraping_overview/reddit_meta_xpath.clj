@@ -10,7 +10,9 @@
   (let [page (-> a-link client/get :body)]
     (core/html->xml page)))
 
-(def *points-xpath* "//html/body/div[contains(@class, 'content')]/div[contains(@class, 'spacer')]/div[contains(@id, 'siteTable')]/div[contains(@class, 'thing')]/div[contains(@class, 'entry')]/p[contains(@class, 'title')]/a[contains(@class, 'title')]")
+(def *title-xpath* "//html/body/div[contains(@class, 'content')]/div[contains(@class, 'spacer')]/div[contains(@id, 'siteTable')]/div[contains(@class, 'thing')]/div[contains(@class, 'entry')]/p[contains(@class, 'title')]/a[contains(@class, 'title')]")
+
+(def *points-xpath* "//html/body/div[contains(@class, 'content')]/div[contains(@class, 'spacer')]/div[contains(@id, 'siteTable')]/div[contains(@class, 'thing')]/div[contains(@class, 'midcol')]/div[contains(@class, 'score')]")
 
 (def *username-xpath* "//html/body/div[contains(@class, 'content')]/div[contains(@class, 'spacer')]/div[contains(@id, 'siteTable')]/div[contains(@class, 'thing')]/div[contains(@class, 'entry')]/p[contains(@class, 'tagline')]/a[contains(@class, 'author')]")
 
@@ -20,12 +22,14 @@
   []
   (let [document (get-link "http://reddit.com/")
 
-        titles     ($x:text* *points-xpath* document)
+        titles     ($x:text* *title-xpath* document)
+        points     ($x:text* *points-xpath* document)
         submitters ($x:text* *username-xpath* document)
         n-comments ($x:text* *comments-xpath* document)]
     (map
-     (fn [[t u c]]
+     (fn [[t p u c]]
        {:title t
         :submitter u
-        :comments c})
-     (map vector titles submitters n-comments))))
+        :comments c
+        :points p})
+     (map vector titles points submitters n-comments))))
