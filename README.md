@@ -6,6 +6,13 @@
 
 In your repl load the class and run `(extract-info)`
 
+## Slides
+
+<script async class="speakerdeck-embed" data-id="f0b571b0759a0131f0bd026a5a2b7ed1" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js">
+</script>
+
+https://speakerdeck.com/shriphani/clojure-scraping-overview
+
 ## License
 
 Copyright © 2014 Shriphani Palakodety
