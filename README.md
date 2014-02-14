@@ -1,14 +1,14 @@
 # clojure_scraping_overview
 
-A Clojure library designed to ... well, that part is up to you.
+`clj-xpath` and `enlive` overview using Reddit.
 
 ## Usage
 
-FIXME
+In your repl load the class and run `(extract-info)`
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Shriphani Palakodety
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
